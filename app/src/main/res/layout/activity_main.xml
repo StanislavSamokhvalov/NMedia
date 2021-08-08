@@ -112,35 +112,13 @@
         app:layout_constraintTop_toBottomOf="@id/barrier2" />
 
     <ImageButton
-        android:id="@+id/comments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/offset_count"
-        android:layout_marginTop="@dimen/offset"
-        android:background="@android:color/transparent"
-        app:layout_constraintTop_toBottomOf="@id/barrier2"
-        app:layout_constraintStart_toEndOf="@+id/likesamount"
-        app:srcCompat="@drawable/ic_baseline_chat_bubble_outline_24"
-        tools:layout_editor_absoluteY="286dp" />
-
-    <TextView
-        android:id="@+id/commentsamount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/offset_amount_vert"
-        android:layout_marginStart="@dimen/offset_amount_horiz"
-        android:text="@string/comments_amount"
-        app:layout_constraintStart_toEndOf="@+id/comments"
-        app:layout_constraintTop_toBottomOf="@id/barrier2" />
-
-    <ImageButton
         android:id="@+id/reply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/offset_count"
         android:layout_marginTop="14dp"
+        android:layout_marginStart="@dimen/offset_count"
         android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@+id/commentsamount"
+        app:layout_constraintStart_toEndOf="@+id/likesamount"
         app:layout_constraintTop_toBottomOf="@id/barrier2"
         app:srcCompat="@drawable/ic_baseline_reply_24" />
 
@@ -158,7 +136,7 @@
         android:id="@+id/views"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="170dp"
         android:layout_marginTop="@dimen/offset_amount_vert"
         app:layout_constraintStart_toEndOf="@id/replyamount"
         app:layout_constraintTop_toBottomOf="@id/barrier2"
@@ -171,6 +149,7 @@
         android:layout_height="wrap_content"
         android:text="@string/views_amount"
         android:layout_marginEnd="@dimen/offset"
+        android:layout_marginStart="@dimen/offset_amount_horiz"
         android:layout_marginTop="@dimen/offset_amount_vert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/views"
