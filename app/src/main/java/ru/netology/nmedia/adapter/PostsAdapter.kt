@@ -2,6 +2,7 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +11,10 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 
 interface PostCallback {
-    fun onLikeListener(post: Post)
-    fun onReplyListener(post: Post)
-    fun onViewListener(post: Post)
+    fun like(post: Post)
+    fun reply(post: Post)
+    fun view(post: Post)
+    fun remove(post: Post)
 }
 
 class PostsAdapter(private val PostCallback: PostCallback) :
@@ -45,15 +47,28 @@ class PostViewHolder(private val binding: CardPostBinding,
             )
 
             like.setOnClickListener {
-                postCallback.onLikeListener(post)
+                postCallback.like(post)
             }
 
             reply.setOnClickListener {
-                postCallback.onReplyListener(post)
+                postCallback.reply(post)
             }
 
             views.setOnClickListener {
-                postCallback.onViewListener(post)
+                postCallback.view(post)
+            }
+            menu.setOnClickListener {
+                PopupMenu(it.context, it).apply {
+                    inflate(R.menu.post_options)
+                    setOnMenuItemClickListener { menuItem ->
+                        when (menuItem.itemId) {
+                            R.id.post_remove -> {
+                                postCallback.remove(post)
+                                true
+                            } else -> false
+                        }
+                    }
+                }.show()
             }
         }
     }
