@@ -6,15 +6,17 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.netology.nmedia.Post
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
+import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.util.counterNumber
 
 interface PostCallback {
     fun like(post: Post)
     fun reply(post: Post)
     fun view(post: Post)
     fun remove(post: Post)
+    fun edit(post: Post)
 }
 
 class PostsAdapter(private val PostCallback: PostCallback) :
@@ -65,27 +67,18 @@ class PostViewHolder(private val binding: CardPostBinding,
                             R.id.post_remove -> {
                                 postCallback.remove(post)
                                 true
-                            } else -> false
+                            }
+                            R.id.post_edit -> {
+                                postCallback.edit(post)
+                                true
+                            }
+                            else -> false
                         }
                     }
                 }.show()
             }
         }
     }
-}
-
-fun counterNumber(amount: Double): String {
-    var count = ""
-    if (amount < 1000)
-        count = String.format("%.0f", amount)
-    else if (amount >= 1000 && amount < 10000)
-        count = String.format("%.1f", (amount / 1000)) + "K"
-    else if (amount >= 10000 && amount < 1000000)
-        count = String.format("%.0f", (amount / 1000)) + "K"
-    else if (amount >= 1000000 && amount < 1000000000)
-        count = String.format("%.1f", (amount / 1000000)) + "M"
-    return count
-
 }
 
 class PostDiffCallback : DiffUtil.ItemCallback<Post>() {
