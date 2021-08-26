@@ -40,13 +40,10 @@ class PostViewHolder(private val binding: CardPostBinding,
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likesamount.text = counterNumber(post.likes.toDouble())
-            replyamount.text = counterNumber(post.replyAmount.toDouble())
-            viewscount.text = counterNumber(post.viewsAmount.toDouble())
-
-            like.setImageResource(
-                    if (post.likedByMe) R.drawable.ic_baseline_favorite_24 else R.drawable.ic_baseline_favorite_border_24
-            )
+            reply.text = counterNumber(post.replyAmount.toDouble())
+            views.text = counterNumber(post.viewsAmount.toDouble())
+            like.text = counterNumber(post.likes.toDouble())
+            like.isChecked = post.likedByMe
 
             like.setOnClickListener {
                 postCallback.like(post)

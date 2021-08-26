@@ -88,15 +88,10 @@ class MainActivity : AppCompatActivity() {
                 setText("")
                 clearFocus()
             }
+            viewModel.cancelEditing()
             binding.groupCancelEdit.visibility = View.GONE
             AndroidUtils.hideKeyboard(it)
     }
 
-        binding.cancel.setOnClickListener {
-            viewModel.cancelEditing()
-            binding.content.setText("")
-            groupCancelEdit.visibility = View.GONE
-            AndroidUtils.hideKeyboard(it)
-        }
 }
 }
