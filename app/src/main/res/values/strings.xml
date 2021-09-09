@@ -11,4 +11,8 @@
     <string name="error_empty_content">Content can\'t be empty</string>
     <string name="menu_edit">Edit</string>
     <string name="edit_message">Edit message</string>
+    <string name="chooser_share_post">Share post</string>
+    <string name="add_post">Add post</string>
+    <string name="confirm_add_post">Confirm add post</string>
+    <string name="chooser_video_player">Choose video player</string>
 </resources>

@@ -10,7 +10,9 @@ private val empty = Post(
         author = "",
         content = "",
         published = "",
-        likedByMe = false
+        likedByMe = false,
+        video = "",
+        views = 0
 )
 
 class PostViewModel : ViewModel() {

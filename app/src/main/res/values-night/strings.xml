@@ -2,4 +2,6 @@
 <resources>
     <string name="reply_amount">2</string>
     <string name="views_amount">763</string>
+    <string name="add_post">Add post</string>
+    <string name="confirm_add_post">Confirm add post</string>
 </resources>

@@ -15,7 +15,9 @@ class PostRepositoryInMemoryImplementation : PostRepository {
                     likedByMe = false,
                     likes = 999,
                     replyAmount = 999,
-                    viewsAmount = 999
+                    viewsAmount = 999,
+                    views = 222,
+                    video = "https://www.youtube.com/watch?v=T385OriasaA"
             ),
             Post(
                     id = nextId++,
@@ -25,7 +27,9 @@ class PostRepositoryInMemoryImplementation : PostRepository {
                     likedByMe = false,
                     likes = 111,
                     replyAmount = 111,
-                    viewsAmount = 111
+                    viewsAmount = 111,
+                    views = 45452,
+                    video = "https://www.youtube.com/watch?v=T385OriasaA"
             ),
             Post(
                     id = nextId++,
@@ -35,7 +39,9 @@ class PostRepositoryInMemoryImplementation : PostRepository {
                     likedByMe = false,
                     likes = 666,
                     replyAmount = 666,
-                    viewsAmount = 666
+                    viewsAmount = 666,
+                    views = 875552,
+                    video = "https://www.youtube.com/watch?v=T385OriasaA"
             ),
             Post(
                     id = nextId++,
@@ -45,7 +51,9 @@ class PostRepositoryInMemoryImplementation : PostRepository {
                     likedByMe = false,
                     likes = 0,
                     replyAmount = 0,
-                    viewsAmount = 0
+                    viewsAmount = 0,
+                    views = 7878542,
+                    video = "https://www.youtube.com/watch?v=T385OriasaA"
             )
     ).reversed()
 

@@ -79,11 +79,44 @@
         android:layout_marginBottom="@dimen/offset"
         android:autoLink="web"
         android:textSize="@dimen/text_size"
-        app:layout_constraintBottom_toTopOf="@id/barrier2"
+        app:layout_constraintBottom_toTopOf="@id/videoLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/barrier"
         tools:text="@sample/posts.json/data/content" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/videoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="@dimen/offset"
+        android:layout_marginEnd="@dimen/offset"
+        android:layout_marginBottom="@dimen/offset"
+        android:background="@drawable/ic_banner_fon"
+        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintBottom_toTopOf="@id/barrier2"
+        tools:context=".activity.MainActivity">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:constraint_referenced_ids="video,videoLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/ic_baseline_play_circle_outline_24"
+            style="@style/Widget.App.Button.OutlinedButton.IconVideo"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"

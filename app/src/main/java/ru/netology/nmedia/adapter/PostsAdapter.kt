@@ -13,10 +13,11 @@ import ru.netology.nmedia.util.counterNumber
 
 interface PostCallback {
     fun like(post: Post)
-    fun reply(post: Post)
+    fun share(post: Post)
     fun view(post: Post)
     fun remove(post: Post)
     fun edit(post: Post)
+    fun video(post: Post)
 }
 
 class PostsAdapter(private val PostCallback: PostCallback) :
@@ -50,7 +51,11 @@ class PostViewHolder(private val binding: CardPostBinding,
             }
 
             reply.setOnClickListener {
-                postCallback.reply(post)
+                postCallback.share(post)
+            }
+
+            video.setOnClickListener{
+                postCallback.video(post)
             }
 
             views.setOnClickListener {

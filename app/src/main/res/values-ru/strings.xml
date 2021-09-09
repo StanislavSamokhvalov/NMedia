@@ -12,4 +12,8 @@
     <string name="error_empty_content">Содержимое не может быть пустым</string>
     <string name="menu_edit">Редактировать</string>
     <string name="edit_message">Редактировать сообщение</string>
+    <string name="chooser_share_post">Поделиться постом</string>
+    <string name="add_post">Добавить пост</string>
+    <string name="confirm_add_post">Подтвердите добавление поста</string>
+    <string name="chooser_video_player">Выберите проигрыватель</string>
 </resources>
