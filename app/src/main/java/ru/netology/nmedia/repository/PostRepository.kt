@@ -10,5 +10,4 @@ interface PostRepository {
     fun viewsById(id: Long)
     fun removeById(id: Long)
     fun save(post: Post)
-    fun cancelEditing(post: Post)
 }

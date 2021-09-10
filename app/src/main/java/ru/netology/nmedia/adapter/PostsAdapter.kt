@@ -47,9 +47,7 @@ class PostViewHolder(private val binding: CardPostBinding,
             like.text = counterNumber(post.likes.toDouble())
             like.isChecked = post.likedByMe
 
-            if (post.video != "") {
-                group.visibility = View.VISIBLE
-            }
+            if (post.video.isBlank()) View.GONE else View.VISIBLE
 
             like.setOnClickListener {
                 postCallback.like(post)
