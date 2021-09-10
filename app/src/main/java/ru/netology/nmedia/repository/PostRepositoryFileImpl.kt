@@ -26,6 +26,7 @@ class PostRepositoryFileImpl(
             try {
                 context.openFileInput(filename).bufferedReader().use {
                     posts = gson.fromJson(it, type)
+                    nextId = posts[0].id + 1
                     data.value = posts
                 }
             } catch (e: Exception) {
