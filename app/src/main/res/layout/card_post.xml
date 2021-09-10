@@ -101,7 +101,7 @@
             android:id="@+id/group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:constraint_referenced_ids="video,videoLayout" />
 

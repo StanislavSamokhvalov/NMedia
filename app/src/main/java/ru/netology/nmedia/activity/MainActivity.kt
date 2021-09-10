@@ -4,12 +4,13 @@ package ru.netology.nmedia.activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.card_post.*
 import ru.netology.nmedia.R
 import ru.netology.nmedia.adapter.PostCallback
 import ru.netology.nmedia.adapter.PostsAdapter
@@ -80,14 +81,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun video(post: Post) {
-                if (post.video.isBlank()) {
-                    Toast.makeText(
-                            this@MainActivity,
-                            "Нет содержимого!",
-                            Toast.LENGTH_SHORT
-                    ).show()
-                    return
-                }
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
                 val videoIntent = Intent.createChooser(intent, getString(R.string.chooser_video_player))
                 startActivity(videoIntent)

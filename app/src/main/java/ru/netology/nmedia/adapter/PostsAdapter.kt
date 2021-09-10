@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -46,6 +47,10 @@ class PostViewHolder(private val binding: CardPostBinding,
             like.text = counterNumber(post.likes.toDouble())
             like.isChecked = post.likedByMe
 
+            if (post.video != "") {
+                group.visibility = View.VISIBLE
+            }
+
             like.setOnClickListener {
                 postCallback.like(post)
             }
@@ -54,7 +59,7 @@ class PostViewHolder(private val binding: CardPostBinding,
                 postCallback.share(post)
             }
 
-            video.setOnClickListener{
+            video.setOnClickListener {
                 postCallback.video(post)
             }
 

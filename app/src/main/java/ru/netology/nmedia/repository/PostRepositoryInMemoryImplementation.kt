@@ -52,8 +52,8 @@ class PostRepositoryInMemoryImplementation : PostRepository {
                     likes = 0,
                     replyAmount = 0,
                     viewsAmount = 0,
-                    views = 7878542,
-                    video = "https://www.youtube.com/watch?v=T385OriasaA"
+                    views = 0,
+                    video = ""
             )
     ).reversed()
 
