@@ -22,11 +22,12 @@ class PostRepositoryFileImpl(
     init {
         val file = context.filesDir.resolve(filename)
         if (file.exists()) {
-
             try {
                 context.openFileInput(filename).bufferedReader().use {
                     posts = gson.fromJson(it, type)
-                    nextId = posts[0].id + 1
+                    if (posts.isEmpty()) {
+                        nextId = posts[0].id
+                    } else nextId = posts[0].id + 1
                     data.value = posts
                 }
             } catch (e: Exception) {
@@ -36,7 +37,6 @@ class PostRepositoryFileImpl(
             }
         } else sync()
     }
-
 
     private fun sync() {
         context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {
@@ -81,13 +81,13 @@ class PostRepositoryFileImpl(
 
     override fun save(post: Post) {
         posts = if (post.id == 0L) {
-            listOf(post.copy(id = nextId++)) + posts
+            listOf(post.copy
+            (id = nextId++, author = "Me", likedByMe = false, published = "now")) + posts
         } else posts.map {
             if (it.id != post.id) it else it.copy(content = post.content)
         }
         data.value = posts
         sync()
     }
-
 }
 
