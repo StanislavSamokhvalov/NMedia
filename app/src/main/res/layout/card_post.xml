@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/offset"
-    tools:context=".activity.MainActivity">
+    tools:context=".fragments.FeedFragment">
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/posts_avatar_size"
@@ -95,7 +95,7 @@
         android:background="@drawable/ic_banner_fon"
         app:layout_constraintTop_toBottomOf="@id/content"
         app:layout_constraintBottom_toTopOf="@id/barrier2"
-        tools:context=".activity.MainActivity">
+        tools:context=".fragments.FeedFragment">
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group"

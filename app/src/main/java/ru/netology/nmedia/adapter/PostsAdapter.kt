@@ -19,6 +19,7 @@ interface PostCallback {
     fun remove(post: Post)
     fun edit(post: Post)
     fun video(post: Post)
+    fun post(post: Post)
 }
 
 class PostsAdapter(private val PostCallback: PostCallback) :
@@ -48,6 +49,10 @@ class PostViewHolder(private val binding: CardPostBinding,
             like.isChecked = post.likedByMe
 
             if (post.video != "") View.VISIBLE
+
+            content.setOnClickListener{
+                postCallback.post(post)
+            }
 
             like.setOnClickListener {
                 postCallback.like(post)
