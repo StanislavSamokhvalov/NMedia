@@ -15,7 +15,7 @@ import ru.netology.nmedia.util.counterNumber
 interface PostCallback {
     fun like(post: Post)
     fun share(post: Post)
-    fun view(post: Post)
+//    fun view(post: Post)
     fun remove(post: Post)
     fun edit(post: Post)
     fun video(post: Post)
@@ -66,9 +66,9 @@ class PostViewHolder(private val binding: CardPostBinding,
                 postCallback.video(post)
             }
 
-            views.setOnClickListener {
-                postCallback.view(post)
-            }
+//            views.setOnClickListener {
+//                postCallback.view(post)
+//            }
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.post_options)

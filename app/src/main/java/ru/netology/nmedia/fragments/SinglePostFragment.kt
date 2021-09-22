@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.card_post.view.*
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.FragmentSinglePostBinding
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.PostViewModel
 import ru.netology.nmedia.util.counterNumber
+import ru.netology.nmedia.viewmodel.PostViewModel
 
 class SinglePostFragment : Fragment() {
     val viewModel: PostViewModel by viewModels(
