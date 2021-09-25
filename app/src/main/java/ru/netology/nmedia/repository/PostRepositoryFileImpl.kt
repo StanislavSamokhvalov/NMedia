@@ -63,13 +63,13 @@ class PostRepositoryFileImpl(
         sync()
     }
 
-    override fun viewsById(id: Long) {
-        posts = posts.map {
-            if (it.id != id) it else it.copy(viewsAmount = it.viewsAmount + 1)
-        }
-        data.value = posts
-        sync()
-    }
+//    override fun viewsById(id: Long) {
+//        posts = posts.map {
+//            if (it.id != id) it else it.copy(viewsAmount = it.viewsAmount + 1)
+//        }
+//        data.value = posts
+//        sync()
+//    }
 
     override fun removeById(id: Long) {
         posts = posts.filter { it.id != id }

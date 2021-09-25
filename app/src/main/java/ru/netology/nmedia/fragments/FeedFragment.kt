@@ -17,7 +17,7 @@ import ru.netology.nmedia.adapter.PostCallback
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.dto.PostViewModel
+import ru.netology.nmedia.viewmodel.PostViewModel
 
 
 class FeedFragment : Fragment() {
@@ -51,9 +51,9 @@ class FeedFragment : Fragment() {
 
             }
 
-            override fun view(post: Post) {
-                viewModel.viewsById(post.id)
-            }
+//            override fun view(post: Post) {
+//                viewModel.viewsById(post.id)
+//            }
 
             override fun remove(post: Post) {
                 viewModel.removeById(post.id)
