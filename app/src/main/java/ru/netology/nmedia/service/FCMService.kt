@@ -15,7 +15,6 @@ import ru.netology.nmedia.R
 import kotlin.random.Random
 
 class FCMService : FirebaseMessagingService() {
-
     private val channelId = "remote"
 
     override fun onCreate() {
@@ -34,16 +33,20 @@ class FCMService : FirebaseMessagingService() {
 
     override fun onMessageReceived(message: RemoteMessage) {
         message.data["action"]?.let {
-            when (Action.valueOf(it)) {
+            val type = when (message.data["action"]) {
+                "LIKE" -> "LIKE"
+                "NEWPOST" -> "NEWPOST"
+                else -> "OTHER"
+            }
+
+            when (Action.values().firstOrNull { it.name == type }) {
                 Action.LIKE -> handleLike(Gson().fromJson(message.data["content"], Like::class.java))
                 Action.NEWPOST -> handleNewPost(Gson().fromJson(message.data["content"], NewPost::class.java))
+                else -> handleOther()
             }
         }
     }
 
-    override fun onNewToken(token: String) {
-        println("Token : $token")
-    }
 
     private fun handleLike(like: Like) {
         val notification = NotificationCompat.Builder(this, channelId)
@@ -86,6 +89,10 @@ class FCMService : FirebaseMessagingService() {
                 .build()
 
         NotificationManagerCompat.from(this).notify(Random.nextInt(100_000), notification)
+    }
+
+    override fun onNewToken(token: String) {
+        println("Token : $token")
     }
 
 }

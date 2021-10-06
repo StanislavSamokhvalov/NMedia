@@ -18,10 +18,6 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        supportFragmentManager.commit {
-//            add(R.id.nav_host_fragment_container, FeedFragment())
-//        }
-
         intent?.let {
             if (it.action != Intent.ACTION_SEND) {
                 return@let
