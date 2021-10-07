@@ -32,14 +32,9 @@ class FCMService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
-        message.data["action"]?.let {
-            val type = when (message.data["action"]) {
-                "LIKE" -> "LIKE"
-                "NEWPOST" -> "NEWPOST"
-                else -> "OTHER"
-            }
-
-            when (Action.values().firstOrNull { it.name == type }) {
+        message.data["action"]?.let { typeName ->
+            val type = Action.values().firstOrNull { it.name == typeName }
+            when (type) {
                 Action.LIKE -> handleLike(Gson().fromJson(message.data["content"], Like::class.java))
                 Action.NEWPOST -> handleNewPost(Gson().fromJson(message.data["content"], NewPost::class.java))
                 else -> handleOther()
